@@ -48,29 +48,78 @@ def ND_divide_vector2(tree: bpy.types.NodeTree, mx_node: mx.Node):
     return (node,), mx_node_inputs, mx_node_outputs
 
 
-@register_materialx_node("ND_image_color3")
-def ND_image_color3(tree: bpy.types.NodeTree, mx_node: mx.Node):
+# MaterialX colorspace names to Blender's. Colour images without one use the document's.
+MX_TO_BLENDER_COLORSPACE = {
+    "srgb_texture": "sRGB",
+    "lin_rec709": "Linear Rec.709",
+    "acescg": "ACEScg",
+    "lin_ap1": "ACEScg",
+    "raw": "Non-Color",
+}
+
+
+def _image_colorspace(mx_node: mx.Node, is_color: bool) -> str:
+    if not is_color:
+        return "Non-Color"
     file_input = mx_node.getInput("file")
-    image_path = file_input.getValueString()
-    node: bpy.types.ShaderNodeTexImage = create_blender_node(tree, mx_node, bpy.types.ShaderNodeTexImage)
-    if os.path.exists(image_path):
-        bl_image = bpy.data.images.load(image_path, check_existing=True)
-    else:
+    space = file_input.getColorSpace() or mx_node.getActiveColorSpace()
+    if not space:
+        return "sRGB"
+    if space not in MX_TO_BLENDER_COLORSPACE:
+        raise ValueError(f"{mx_node.getNamePath()}: unsupported colorspace '{space}'")
+    return MX_TO_BLENDER_COLORSPACE[space]
+
+
+def _load_image(image_path: str, colorspace: str) -> bpy.types.Image:
+    """Load once per (file, colorspace), so one file read as colour and as data keeps both."""
+    if not os.path.exists(image_path):
         bl_image = bpy.data.images.new(name=image_path, width=1, height=1)
         bl_image.generated_color = (0.0, 0.0, 0.0, 0.0)  # Default color if image not found
-    # use suffix of image_path?
-    bl_image.colorspace_settings.name = 'sRGB'  # Assuming the image is in sRGB color space
-    node.image = bl_image
-    # node.colorspace_settings.name = 'Linear Rec.709'
+        return bl_image
+    abs_path = os.path.normpath(bpy.path.abspath(image_path))
+    for bl_image in bpy.data.images:
+        if (os.path.normpath(bpy.path.abspath(bl_image.filepath)) == abs_path
+                and bl_image.colorspace_settings.name == colorspace):
+            return bl_image
+    bl_image = bpy.data.images.load(image_path, check_existing=False)
+    bl_image.colorspace_settings.name = colorspace
+    return bl_image
+
+
+def _image(tree: bpy.types.NodeTree, mx_node: mx.Node, is_color: bool):
+    image_path = mx_node.getInput("file").getValueString()
+    node: bpy.types.ShaderNodeTexImage = create_blender_node(tree, mx_node, bpy.types.ShaderNodeTexImage)
+    node.image = _load_image(image_path, _image_colorspace(mx_node, is_color))
     node.interpolation = 'Linear'
 
     mx_node_inputs = {}
     mx_node_inputs["texcoord"] = node.inputs['Vector']
 
     apply_default_values(mx_node, mx_node_inputs)
+    return node, mx_node_inputs
 
-    mx_node_outputs = {"out": node.outputs[0]}
+
+@register_materialx_node("ND_image_color3")
+def ND_image_color3(tree: bpy.types.NodeTree, mx_node: mx.Node):
+    node, mx_node_inputs = _image(tree, mx_node, is_color=True)
+    mx_node_outputs = {"out": node.outputs['Color']}
     return (node,), mx_node_inputs, mx_node_outputs
+
+
+@register_materialx_node("ND_image_vector3")
+def ND_image_vector3(tree: bpy.types.NodeTree, mx_node: mx.Node):
+    node, mx_node_inputs = _image(tree, mx_node, is_color=False)
+    mx_node_outputs = {"out": node.outputs['Color']}
+    return (node,), mx_node_inputs, mx_node_outputs
+
+
+@register_materialx_node("ND_image_float")
+def ND_image_float(tree: bpy.types.NodeTree, mx_node: mx.Node):
+    node, mx_node_inputs = _image(tree, mx_node, is_color=False)
+    split_node = create_blender_node(tree, mx_node, bpy.types.ShaderNodeSeparateColor)
+    tree.links.new(split_node.inputs[0], node.outputs['Color'])
+    mx_node_outputs = {"out": split_node.outputs[0]}
+    return (node, split_node), mx_node_inputs, mx_node_outputs
 
 
 @register_materialx_node("ND_multiply_vector2")
