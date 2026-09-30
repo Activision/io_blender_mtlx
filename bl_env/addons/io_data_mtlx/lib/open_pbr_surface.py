@@ -19,63 +19,63 @@ from .graph_utils import (
 def ND_open_pbr_surface_surfaceshader(tree: bpy.types.NodeTree, mx_node: mx.Node):
     ShaderNodeBsdfPrincipled_2 = create_blender_node(tree, mx_node, 'ShaderNodeBsdfPrincipled')
     ShaderNodeBsdfPrincipled_2.update()
-    ShaderNodeBsdfPrincipled_2.inputs[0].default_value = (0.6000000238418579, 0.6000000238418579, 0.6000000238418579, 1.0)
+    ShaderNodeBsdfPrincipled_2.inputs['Base Color'].default_value = (0.6000000238418579, 0.6000000238418579, 0.6000000238418579, 1.0)
     ShaderNodeBsdfPrincipled_2.update()
-    ShaderNodeBsdfPrincipled_2.inputs[1].default_value = 1.0
+    ShaderNodeBsdfPrincipled_2.inputs['Metallic'].default_value = 1.0
     ShaderNodeBsdfPrincipled_2.update()
-    ShaderNodeBsdfPrincipled_2.inputs[2].default_value = 0.0
+    ShaderNodeBsdfPrincipled_2.inputs['Roughness'].default_value = 0.0
     ShaderNodeBsdfPrincipled_2.update()
-    ShaderNodeBsdfPrincipled_2.inputs[3].default_value = 1.5
+    ShaderNodeBsdfPrincipled_2.inputs['IOR'].default_value = 1.5
     ShaderNodeBsdfPrincipled_2.update()
-    ShaderNodeBsdfPrincipled_2.inputs[4].default_value = 1.0
+    ShaderNodeBsdfPrincipled_2.inputs['Alpha'].default_value = 1.0
     ShaderNodeBsdfPrincipled_2.update()
-    ShaderNodeBsdfPrincipled_2.inputs[5].default_value = (0.0, 0.0, 0.0)
+    ShaderNodeBsdfPrincipled_2.inputs['Normal'].default_value = (0.0, 0.0, 0.0)
     ShaderNodeBsdfPrincipled_2.update()
-    ShaderNodeBsdfPrincipled_2.inputs[7].default_value = 0.0
+    ShaderNodeBsdfPrincipled_2.inputs['Diffuse Roughness'].default_value = 0.0
     ShaderNodeBsdfPrincipled_2.update()
-    ShaderNodeBsdfPrincipled_2.inputs[8].default_value = 0.0
+    ShaderNodeBsdfPrincipled_2.inputs['Subsurface Weight'].default_value = 0.0
     ShaderNodeBsdfPrincipled_2.update()
-    ShaderNodeBsdfPrincipled_2.inputs[9].default_value = (1.0, 0.20000000298023224, 0.10000000149011612)
+    ShaderNodeBsdfPrincipled_2.inputs['Subsurface Radius'].default_value = (1.0, 0.20000000298023224, 0.10000000149011612)
     ShaderNodeBsdfPrincipled_2.update()
-    ShaderNodeBsdfPrincipled_2.inputs[10].default_value = 0.05000000074505806
+    ShaderNodeBsdfPrincipled_2.inputs['Subsurface Scale'].default_value = 0.05000000074505806
     ShaderNodeBsdfPrincipled_2.update()
-    ShaderNodeBsdfPrincipled_2.inputs[12].default_value = 0.0
+    ShaderNodeBsdfPrincipled_2.inputs['Subsurface Anisotropy'].default_value = 0.0
     ShaderNodeBsdfPrincipled_2.update()
-    ShaderNodeBsdfPrincipled_2.inputs[13].default_value = 0.5
+    ShaderNodeBsdfPrincipled_2.inputs['Specular IOR Level'].default_value = 0.5
     ShaderNodeBsdfPrincipled_2.update()
-    ShaderNodeBsdfPrincipled_2.inputs[14].default_value = (1.0, 0.0, 0.007685747928917408, 1.0)
+    ShaderNodeBsdfPrincipled_2.inputs['Specular Tint'].default_value = (1.0, 0.0, 0.007685747928917408, 1.0)
     ShaderNodeBsdfPrincipled_2.update()
-    ShaderNodeBsdfPrincipled_2.inputs[15].default_value = 0.0
+    ShaderNodeBsdfPrincipled_2.inputs['Anisotropic'].default_value = 0.0
     ShaderNodeBsdfPrincipled_2.update()
-    ShaderNodeBsdfPrincipled_2.inputs[16].default_value = 0.0
+    ShaderNodeBsdfPrincipled_2.inputs['Anisotropic Rotation'].default_value = 0.0
     ShaderNodeBsdfPrincipled_2.update()
-    ShaderNodeBsdfPrincipled_2.inputs[17].default_value = (0.0, 0.0, 0.0)
+    ShaderNodeBsdfPrincipled_2.inputs['Tangent'].default_value = (0.0, 0.0, 0.0)
     ShaderNodeBsdfPrincipled_2.update()
-    ShaderNodeBsdfPrincipled_2.inputs[18].default_value = 0.0
+    ShaderNodeBsdfPrincipled_2.inputs['Transmission Weight'].default_value = 0.0
     ShaderNodeBsdfPrincipled_2.update()
-    ShaderNodeBsdfPrincipled_2.inputs[19].default_value = 0.0
+    ShaderNodeBsdfPrincipled_2.inputs['Coat Weight'].default_value = 0.0
     ShaderNodeBsdfPrincipled_2.update()
-    ShaderNodeBsdfPrincipled_2.inputs[20].default_value = 0.029999999329447746
+    ShaderNodeBsdfPrincipled_2.inputs['Coat Roughness'].default_value = 0.029999999329447746
     ShaderNodeBsdfPrincipled_2.update()
-    ShaderNodeBsdfPrincipled_2.inputs[21].default_value = 1.5
+    ShaderNodeBsdfPrincipled_2.inputs['Coat IOR'].default_value = 1.5
     ShaderNodeBsdfPrincipled_2.update()
-    ShaderNodeBsdfPrincipled_2.inputs[22].default_value = (1.0, 1.0, 1.0, 1.0)
+    ShaderNodeBsdfPrincipled_2.inputs['Coat Tint'].default_value = (1.0, 1.0, 1.0, 1.0)
     ShaderNodeBsdfPrincipled_2.update()
-    ShaderNodeBsdfPrincipled_2.inputs[23].default_value = (0.0, 0.0, 0.0)
+    ShaderNodeBsdfPrincipled_2.inputs['Coat Normal'].default_value = (0.0, 0.0, 0.0)
     ShaderNodeBsdfPrincipled_2.update()
-    ShaderNodeBsdfPrincipled_2.inputs[24].default_value = 0.0
+    ShaderNodeBsdfPrincipled_2.inputs['Sheen Weight'].default_value = 0.0
     ShaderNodeBsdfPrincipled_2.update()
-    ShaderNodeBsdfPrincipled_2.inputs[25].default_value = 0.5
+    ShaderNodeBsdfPrincipled_2.inputs['Sheen Roughness'].default_value = 0.5
     ShaderNodeBsdfPrincipled_2.update()
-    ShaderNodeBsdfPrincipled_2.inputs[26].default_value = (1.0, 1.0, 1.0, 1.0)
+    ShaderNodeBsdfPrincipled_2.inputs['Sheen Tint'].default_value = (1.0, 1.0, 1.0, 1.0)
     ShaderNodeBsdfPrincipled_2.update()
-    ShaderNodeBsdfPrincipled_2.inputs[27].default_value = (1.0, 1.0, 1.0, 1.0)
+    ShaderNodeBsdfPrincipled_2.inputs['Emission Color'].default_value = (1.0, 1.0, 1.0, 1.0)
     ShaderNodeBsdfPrincipled_2.update()
-    ShaderNodeBsdfPrincipled_2.inputs[28].default_value = 0.0
+    ShaderNodeBsdfPrincipled_2.inputs['Emission Strength'].default_value = 0.0
     ShaderNodeBsdfPrincipled_2.update()
-    ShaderNodeBsdfPrincipled_2.inputs[29].default_value = 0.0
+    ShaderNodeBsdfPrincipled_2.inputs['Thin Film Thickness'].default_value = 0.0
     ShaderNodeBsdfPrincipled_2.update()
-    ShaderNodeBsdfPrincipled_2.inputs[30].default_value = 1.3300000429153442
+    ShaderNodeBsdfPrincipled_2.inputs['Thin Film IOR'].default_value = 1.3300000429153442
     ShaderNodeBsdfPrincipled_2.update()
     ShaderNodeMix_3 = create_blender_node(tree, mx_node, 'ShaderNodeMix')
     ShaderNodeMix_3.update()
@@ -177,50 +177,50 @@ def ND_open_pbr_surface_surfaceshader(tree: bpy.types.NodeTree, mx_node: mx.Node
     ShaderNodeMath_12.update()
     mx_node_inputs = {}
     mx_node_outputs = {}
-    tree.links.new(ShaderNodeMix_3.outputs[2], ShaderNodeBsdfPrincipled_2.inputs[0])
+    tree.links.new(ShaderNodeMix_3.outputs[2], ShaderNodeBsdfPrincipled_2.inputs['Base Color'])
     mx_node_outputs['out'] = ShaderNodeBsdfPrincipled_2.outputs[0]
     tree.links.new(ShaderNodeCombineColor_4.outputs[0], ShaderNodeMix_3.inputs[6])
     mx_node_inputs['base_weight'] = ShaderNodeCombineColor_4.inputs[2]
     mx_node_inputs['base_color'] = ShaderNodeMix_3.inputs[7]
-    mx_node_inputs['base_diffuse_roughness'] = ShaderNodeBsdfPrincipled_2.inputs[7]
-    mx_node_inputs['base_metalness'] = ShaderNodeBsdfPrincipled_2.inputs[1]
+    mx_node_inputs['base_diffuse_roughness'] = ShaderNodeBsdfPrincipled_2.inputs['Diffuse Roughness']
+    mx_node_inputs['base_metalness'] = ShaderNodeBsdfPrincipled_2.inputs['Metallic']
     tree.links.new(ShaderNodeCombineColor_6.outputs[0], ShaderNodeMix_5.inputs[6])
-    tree.links.new(ShaderNodeMix_5.outputs[2], ShaderNodeBsdfPrincipled_2.inputs[14])
+    tree.links.new(ShaderNodeMix_5.outputs[2], ShaderNodeBsdfPrincipled_2.inputs['Specular Tint'])
     mx_node_inputs['specular_weight'] = ShaderNodeCombineColor_6.inputs[2]
     mx_node_inputs['specular_color'] = ShaderNodeMix_5.inputs[7]
-    mx_node_inputs['specular_roughness'] = ShaderNodeBsdfPrincipled_2.inputs[2]
-    mx_node_inputs['specular_ior'] = ShaderNodeBsdfPrincipled_2.inputs[3]
-    mx_node_inputs['specular_roughness_anisotropy'] = ShaderNodeBsdfPrincipled_2.inputs[15]
-    mx_node_inputs['transmission_weight'] = ShaderNodeBsdfPrincipled_2.inputs[18]
-    mx_node_inputs['subsurface_weight'] = ShaderNodeBsdfPrincipled_2.inputs[8]
+    mx_node_inputs['specular_roughness'] = ShaderNodeBsdfPrincipled_2.inputs['Roughness']
+    mx_node_inputs['specular_ior'] = ShaderNodeBsdfPrincipled_2.inputs['IOR']
+    mx_node_inputs['specular_roughness_anisotropy'] = ShaderNodeBsdfPrincipled_2.inputs['Anisotropic']
+    mx_node_inputs['transmission_weight'] = ShaderNodeBsdfPrincipled_2.inputs['Transmission Weight']
+    mx_node_inputs['subsurface_weight'] = ShaderNodeBsdfPrincipled_2.inputs['Subsurface Weight']
     tree.links.new(ShaderNodeSeparateColor_8.outputs[0], ShaderNodeCombineXYZ_7.inputs[0])
     tree.links.new(ShaderNodeSeparateColor_8.outputs[1], ShaderNodeCombineXYZ_7.inputs[1])
     tree.links.new(ShaderNodeSeparateColor_8.outputs[2], ShaderNodeCombineXYZ_7.inputs[2])
-    mx_node_inputs['subsurface_radius'] = ShaderNodeBsdfPrincipled_2.inputs[10]
+    mx_node_inputs['subsurface_radius'] = ShaderNodeBsdfPrincipled_2.inputs['Subsurface Scale']
     mx_node_inputs['subsurface_color'] = ShaderNodeMix_9.inputs[6]
     mx_node_inputs['subsurface_radius_scale'] = ShaderNodeMix_9.inputs[7]
     tree.links.new(ShaderNodeMix_9.outputs[2], ShaderNodeSeparateColor_8.inputs[0])
-    tree.links.new(ShaderNodeCombineXYZ_7.outputs[0], ShaderNodeBsdfPrincipled_2.inputs[9])
-    mx_node_inputs['subsurface_scatter_anisotropy'] = ShaderNodeBsdfPrincipled_2.inputs[12]
-    mx_node_inputs['fuzz_weight'] = ShaderNodeBsdfPrincipled_2.inputs[24]
-    mx_node_inputs['fuzz_color'] = ShaderNodeBsdfPrincipled_2.inputs[26]
-    mx_node_inputs['fuzz_roughness'] = ShaderNodeBsdfPrincipled_2.inputs[25]
-    mx_node_inputs['coat_weight'] = ShaderNodeBsdfPrincipled_2.inputs[19]
-    mx_node_inputs['coat_roughness'] = ShaderNodeBsdfPrincipled_2.inputs[20]
-    mx_node_inputs['coat_ior'] = ShaderNodeBsdfPrincipled_2.inputs[21]
+    tree.links.new(ShaderNodeCombineXYZ_7.outputs[0], ShaderNodeBsdfPrincipled_2.inputs['Subsurface Radius'])
+    mx_node_inputs['subsurface_scatter_anisotropy'] = ShaderNodeBsdfPrincipled_2.inputs['Subsurface Anisotropy']
+    mx_node_inputs['fuzz_weight'] = ShaderNodeBsdfPrincipled_2.inputs['Sheen Weight']
+    mx_node_inputs['fuzz_color'] = ShaderNodeBsdfPrincipled_2.inputs['Sheen Tint']
+    mx_node_inputs['fuzz_roughness'] = ShaderNodeBsdfPrincipled_2.inputs['Sheen Roughness']
+    mx_node_inputs['coat_weight'] = ShaderNodeBsdfPrincipled_2.inputs['Coat Weight']
+    mx_node_inputs['coat_roughness'] = ShaderNodeBsdfPrincipled_2.inputs['Coat Roughness']
+    mx_node_inputs['coat_ior'] = ShaderNodeBsdfPrincipled_2.inputs['Coat IOR']
     mx_node_inputs['coat_darkening'] = ShaderNodeCombineColor_10.inputs[2]
     mx_node_inputs['coat_color'] = ShaderNodeMix_11.inputs[6]
     tree.links.new(ShaderNodeCombineColor_10.outputs[0], ShaderNodeMix_11.inputs[7])
-    tree.links.new(ShaderNodeMix_11.outputs[2], ShaderNodeBsdfPrincipled_2.inputs[22])
-    mx_node_inputs['thin_film_ior'] = ShaderNodeBsdfPrincipled_2.inputs[30]
+    tree.links.new(ShaderNodeMix_11.outputs[2], ShaderNodeBsdfPrincipled_2.inputs['Coat Tint'])
+    mx_node_inputs['thin_film_ior'] = ShaderNodeBsdfPrincipled_2.inputs['Thin Film IOR']
     mx_node_inputs['thin_film_thickness'] = ShaderNodeMath_12.inputs[1]
-    tree.links.new(ShaderNodeMath_12.outputs[0], ShaderNodeBsdfPrincipled_2.inputs[29])
+    tree.links.new(ShaderNodeMath_12.outputs[0], ShaderNodeBsdfPrincipled_2.inputs['Thin Film Thickness'])
     mx_node_inputs['thin_film_weight'] = ShaderNodeMath_12.inputs[0]
-    mx_node_inputs['emission_luminance'] = ShaderNodeBsdfPrincipled_2.inputs[28]
-    mx_node_inputs['emission_color'] = ShaderNodeBsdfPrincipled_2.inputs[27]
-    mx_node_inputs['geometry_opacity'] = ShaderNodeBsdfPrincipled_2.inputs[4]
-    mx_node_inputs['geometry_normal'] = ShaderNodeBsdfPrincipled_2.inputs[5]
-    mx_node_inputs['geometry_coat_normal'] = ShaderNodeBsdfPrincipled_2.inputs[23]
-    mx_node_inputs['geometry_tangent'] = ShaderNodeBsdfPrincipled_2.inputs[17]
+    mx_node_inputs['emission_luminance'] = ShaderNodeBsdfPrincipled_2.inputs['Emission Strength']
+    mx_node_inputs['emission_color'] = ShaderNodeBsdfPrincipled_2.inputs['Emission Color']
+    mx_node_inputs['geometry_opacity'] = ShaderNodeBsdfPrincipled_2.inputs['Alpha']
+    mx_node_inputs['geometry_normal'] = ShaderNodeBsdfPrincipled_2.inputs['Normal']
+    mx_node_inputs['geometry_coat_normal'] = ShaderNodeBsdfPrincipled_2.inputs['Coat Normal']
+    mx_node_inputs['geometry_tangent'] = ShaderNodeBsdfPrincipled_2.inputs['Tangent']
     apply_default_values(mx_node, mx_node_inputs)
     return (ShaderNodeBsdfPrincipled_2,ShaderNodeMix_3,ShaderNodeCombineColor_4,ShaderNodeMix_5,ShaderNodeCombineColor_6,ShaderNodeCombineXYZ_7,ShaderNodeSeparateColor_8,ShaderNodeMix_9,ShaderNodeCombineColor_10,ShaderNodeMix_11,ShaderNodeMath_12), mx_node_inputs, mx_node_outputs
