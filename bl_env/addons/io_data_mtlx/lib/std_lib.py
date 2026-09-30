@@ -452,15 +452,11 @@ def ND_tiledimage_float(tree: bpy.types.NodeTree, mx_node: mx.Node):
 
 @register_materialx_node("ND_normalmap_float")
 def ND_normalmap_float(tree: bpy.types.NodeTree, mx_node: mx.Node):
+    # Blender's Normal Map node returns a world-space normal, which is what MaterialX's normalmap
+    # outputs, so it connects directly. Any green-channel convention belongs to the image.
     node = create_blender_node(tree, mx_node, bpy.types.ShaderNodeNormalMap)
     node.inputs[1].default_value = (0.5, 0.5, 1.0, 1.0)  # Default normal map value
     node.inputs[0].default_value = 1.0
-
-    multiply_node = create_blender_node(tree, mx_node, bpy.types.ShaderNodeVectorMath)
-    multiply_node.operation = 'MULTIPLY'
-    multiply_node.inputs[1].default_value = (1.0, -1.0, 1.0)
-
-    tree.links.new(multiply_node.inputs[0], node.outputs[0])
 
     mx_node_inputs = {}
     mx_node_inputs["scale"] = node.inputs[0]
@@ -468,7 +464,7 @@ def ND_normalmap_float(tree: bpy.types.NodeTree, mx_node: mx.Node):
 
     apply_default_values(mx_node, mx_node_inputs)
 
-    mx_node_outputs = {"out": multiply_node.outputs[0]}
+    mx_node_outputs = {"out": node.outputs[0]}
     return (node,), mx_node_inputs, mx_node_outputs
 
 
