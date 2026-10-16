@@ -39,6 +39,9 @@ their input values, similar to how a game engine would treat Material Instances.
   - `ND_ifequal_color3B`
   - `ND_ifequal_floatB`
   - `ND_ifequal_vector3B`
+  - `ND_image_color3`
+  - `ND_image_float`
+  - `ND_image_vector3`
   - `ND_mix_color3`
   - `ND_mix_vector3`
   - `ND_multiply_color3`
